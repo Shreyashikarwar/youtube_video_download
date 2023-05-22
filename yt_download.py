@@ -8,9 +8,10 @@ def yt_download_link(link):
     video = youtube_1.streams.all()
 
     #for audio only
-    
     # video = youtube_1.streams.filter(only_audio=True)
 
+    #for specific type of video
+    video = youtube_1.streams.filter(progressive=True, file_extension='mp4')
 
     vid_list = list(enumerate(video))
 
