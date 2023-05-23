@@ -22,4 +22,24 @@ def yt_download_link(link):
     video[strm].download()
     print("successfully")
 
+
+
+
 yt_download_link(link = "https://www.youtube.com/watch?v=XnNzck5-HdQ&list=PLu0W_9lII9ahwLNzab_rVfZ06ZCZYEcNs")
+
+# for playlist
+from pytube import Playlist
+
+
+
+def yt_download_playlist(link):
+    vid_p_list = Playlist(link)
+
+    # for all the format
+    for vid in vid_p_list.videos:
+        vid.streams.first().download()
+
+    return "Videos downloaded successfully"
+
+yt_download_playlist("https://www.youtube.com/playlist?list=PLgUwDviBIf0q8Hkd7bK2Bpryj2xVJk8Vk")
+
